@@ -1,4 +1,6 @@
-import folium
+import folium as f
 
-map = folium.Map(location=[45.372, -121.697], zoom_start=12)
-map.save(path='folium.html')
+map = f.Map(location=[45.3720, -121.6970], zoom_start=12)
+map.save('folium.html')
+
+dir(folium)
