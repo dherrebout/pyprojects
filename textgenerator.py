@@ -37,7 +37,3 @@ def generator():
     return name
 
 print(generator())
-
-
-class Person:
-    pass
