@@ -1,15 +1,21 @@
 import folium
 import pandas as pd
 
+df = pd.read_csv('Volcanoes-USA.txt')
+
 map_carto = folium.Map(
-    location=[52.3, 4.9],
-    zoom_start=10,
+    location=[45, -120],
+    zoom_start=5,
     tiles='cartodbpositron')
 
-folium.Marker(
-    location=[52.3, 4.9],
-    popup='<h1>Amsterdam</h1><p>Zuid</p>',
-    icon=folium.Icon(color='red')
+for lat, lon, name, elev in zip(df['LAT'], df['LON'], df['NAME'], df['ELEV']):
+    folium.Marker(
+        location=[lat, lon],
+        popup=str(name) + ' - ' + str(elev) + 'm',
+        icon=folium.Icon(
+            color='green' if elev < 1000
+            else 'orange' if elev in range(1000, 3000)
+            else 'red')
     ).add_to(map_carto)
 
 map_carto.save('C:\\Users\\dylan\\OneDrive\\Documenten\\Coding\\Git\\maps'
