@@ -1,4 +1,5 @@
 import folium
+import pandas as pd
 
 map_carto = folium.Map(
     location=[52.3, 4.9],
