@@ -21,13 +21,25 @@ def color(elev):
 
     return color
 
+fg = folium.FeatureGroup(name="Volcanoes")
 
 for lat, lon, name, elev in zip(df['LAT'], df['LON'], df['NAME'], df['ELEV']):
     folium.Marker(
         location=[lat, lon],
         popup=str(name) + ' - ' + str(elev) + 'm',
         icon=folium.Icon(color=color(elev))
-    ).add_to(map_carto)
+        ).add_to(fg)
+
+fg.add_to(map_carto)
+
+folium.GeoJson(
+        data=open('world.json', encoding='utf-8-sig'),
+        name='World',
+        style_function=lambda x:
+        {'fillColor': 'green' if x['properties']['POP2005'] <= 10000000 else 'orange'}
+        ).add_to(map_carto)
+
+map_carto.add_child(folium.LayerControl())
 
 map_carto.save('C:\\Users\\dylan\\OneDrive\\Documenten\\Coding\\Git\\maps'
                '\\pyprojects_map.py.html')
