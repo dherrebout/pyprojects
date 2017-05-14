@@ -34,12 +34,16 @@ while True:
         # Read hosts file
         with open(hosts_path, 'r') as file:
             content = file.readlines()
+            file.seek(0)
 
-        # Read all lines in hosts
-        for line in content:
-            # If item is not in hosts, append it
-            if not any(website in line for website in website_list):
-                file.write(line)
+            # Read all lines in hosts
+            for line in content:
+                # Append only lines if they are not in website_list
+                if not any(website in line for website in website_list):
+                    file.write(line)
+
+            # Remove double lines
+            file.truncate()
 
     # End of while loop: sleep for 60 seconds
     time.sleep(60)
