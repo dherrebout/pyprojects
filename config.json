@@ -8,16 +8,11 @@
     
     "description": "This is an example configuration file with one fake accessory and one fake platform. You can use this as a template for creating your own configuration file containing devices you actually own.",
 
-    "accessories": [
-        {
-        }
-    ],
-
     "platforms": [
         {
    		  "platform": "Nest",
    		
-   		  "token" : "token will be generated upon first run of homebridge without a token",
+   		  "token" : "9846e9f8-69d9-48b9-bdb5-940bf7bc0475",
    		
    		  "clientId": "85a3f414-c46a-4237-97df-70dce2b74e50",
    		  "clientSecret": "ZXf18hR79BfLrMRhHTTExz9zV",
