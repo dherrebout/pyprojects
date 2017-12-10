@@ -6,7 +6,7 @@
         "pin": "031-47-154"
     },
     
-    "description": "This is an example configuration file with one fake accessory and one fake platform. You can use this as a $
+    "description": "This is an example configuration file with one fake accessory and one fake platform.",
 
     "accessories": [
       {
